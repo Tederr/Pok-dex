@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="src/assets/icon/iconPokedex.png" type="image/x-icon">
 
     <!-- CSS -->
+    <link rel="stylesheet" href="src/styles/pokedex.css">
     <link rel="stylesheet" href="src/styles/global.css">
 
     <!-- Font Roboto -->
@@ -25,30 +26,24 @@
 </head>
 
 <body>
-
     <section class="content">
-        <h1>Pokédex</h1>
+        <h1>Pokedex</h1>
 
-        <ol class="pokemons">
-            <li class="pokemon">
-                
-                <span class="number">#001</span>
-                <span class="name">Bulbasaur</span>
-                
-                <div class="details"> 
-                    <ol class="types">
-                        <li class="type">Grass</li>
-                        <li class="type">Poison</li>
-                    </ol>
-
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="">
-                </div>
-            </li>
+        <ol id="pokemonList" class="pokemons">
+            <!-- ..... Pokemons here ..... -->
         </ol>
 
+        <div class="pagination">
+            <button id="loadMoreButton" type="button">
+                Load More
+            </button>
+        </div>
     </section>
 
-    <script src="src/scripts/main.js"></script>
+    <!-- JS -->
+    <script defer src="/assets/js/pokemon-model.js"></script>
+    <script defer src="/assets/js/poke-api.js"></script>
+    <script defer src="/assets/js/main.js"></script>
 </body>
 
 </html>
