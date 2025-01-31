@@ -14,8 +14,11 @@ body {
     background-color: #fff;
 }
 
-a{
+button{
     text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 992px) {
