@@ -5,12 +5,21 @@ async function fetchPokemonData(pokemonId) {
 }
 
 // Função para exibir os detalhes do Pokémon
+const backgraudColor = document.querySelector('.content-details');
+function convertType(pokemon) {
+    backgraudColor.classList.add(pokemon.types[0].type.name);
+    return `${pokemon.types.map((type) => `<li class="type-details ${type.type.name}">${type.type.name}</li>`).join('')}`;
+}
+
+const types = document.getElementById('pokemon-types');
 function displayPokemonDetails(pokemon) {
     document.getElementById('pokemon-name').textContent = pokemon.name;
-    document.getElementById('pokemon-image').src = pokemon.sprites.front_default;
+    document.getElementById('pokemon-id').textContent = `#${pokemon.id}`;
+    types.innerHTML = convertType(pokemon);
+
+    document.getElementById('pokemon-image').src = pokemon.sprites.other['official-artwork'].front_default;
     document.getElementById('pokemon-height').textContent = `Altura: ${pokemon.height / 10}m`;
-    document.getElementById('pokemon-weight').textContent = `Peso: ${pokemon.weight / 10}kg`;
-    document.getElementById('pokemon-types').textContent = `Tipos: ${pokemon.types.map(type => type.type.name).join(', ')}`;
+    // document.getElementById('pokemon-weight').textContent = `Peso: ${pokemon.weight / 10}kg`;
 }
 
 // Função principal para carregar os detalhes do Pokémon

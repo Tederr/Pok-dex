@@ -17,6 +17,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/pokedex.css">
     <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/details.css">
 
     <!-- Font Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,25 +26,45 @@
 
 </head>
 
-<body class="grass">
-<div>
+<body>
+    <section class="content-details">
+
+        <a href="../../index.html"><button class="back-page"><i class="fa-solid fa-arrow-left-long"></i></button></a>
+
+        <span id="pokemon-id" class="number-details"></span>
+        <h1 id="pokemon-name" class="name-details"></h1>
+        <ol id="pokemon-types" class="types-details"></ol>
+        <div class="image">
+            <img id="pokemon-image" class="image-details" src="" alt="">
+        </div>
+        
+        <div class="card-details">
+            <p id="pokemon-height"></p>
+        </div>
+
+    </section>
     
-</div>
-
-    <button><a href="../../index.html"> <-- </a></button>
-
-    <div id="pokemon-details" class="details">
-        <h1 id="pokemon-name"></h1>
-        <img id="pokemon-image" src="" alt="">
-        <p id="pokemon-height"></p>
-        <p id="pokemon-weight"></p>
-        <p id="pokemon-types"></p>
-    </div>
-
     <!-- JS -->
     <script defer src="../scripts/pokemon-model.js"></script>
     <script defer src="../scripts/poke-api.js"></script>
     <script defer src="../scripts/pokemonDetails.js"></script>
+    <script src="https://kit.fontawesome.com/e171c55c56.js" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
+
+
+
+<!-- <div id="type-color">
+    
+    <img id="pokemon-image" src="" alt="">
+    
+    
+    
+    <div id="pokemon-details" class="card-details">
+        <p id="pokemon-height"></p>
+        <p id="pokemon-weight"></p>
+        <p id="pokemon-types"></p>
+    </div>
+</div> -->

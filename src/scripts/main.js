@@ -30,9 +30,8 @@ function loadPokemonItens(offset, limit) {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
         pokemonList.innerHTML += newHtml;
         pokemonList.addEventListener('click', (event) => {
-            
             const pokemon = event.target.closest('button').querySelector('#pokemonName').textContent;
-            window.location.href = `src/page/pokemon.html?id=${pokemon}`;
+            window.location.href = `src/page/detalhesPokemon.html?id=${pokemon}`;
             
         })
     })
