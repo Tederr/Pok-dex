@@ -59,7 +59,7 @@
     width: 4rem;
 }
 
-.image{
+.image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -77,4 +77,40 @@
     border-top-right-radius: 1.5rem;
     height: 100%;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    & h3{
+        padding: 0;
+        margin: 0;
+    }
+
+    & h3:first-child{
+        margin-left: 1rem;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    font-size: smaller;
+
+    & p {
+        display: flex;
+        flex-direction: row;
+        color: #808080;
+        margin-top: .5rem;
+
+        & span {
+            color: #000000;
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateX(50px);
+    pointer-events: none;
 }

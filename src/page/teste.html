@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Stats</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            position: relative;
+            width: 300px;
+        }
+        .card {
+            position: absolute;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+            transform: translateX(50px);
+            pointer-events: none;
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #45a049;
+        }
+        .bar {
+            height: 8px;
+            border-radius: 5px;
+            margin: 5px 0;
+            background-color: #ddd;
+            position: relative;
+        }
+        .bar span {
+            display: block;
+            height: 100%;
+            border-radius: 5px;
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card" id="aboutCard">
+            <h3>About</h3>
+            <div class="info">
+                <p><strong>Species:</strong> Seed</p>
+                <p><strong>Height:</strong> 2'3.6" (0.70 cm)</p>
+                <p><strong>Weight:</strong> 15.2 lbs (6.9 kg)</p>
+                <p><strong>Abilities:</strong> Overgrow, Chlorophyll</p>
+                <p><strong>Gender:</strong> ♂ 87.5% ♀ 12.5%</p>
+                <p><strong>Egg Group:</strong> Monster</p>
+                <p><strong>Egg Cycle:</strong> Grass</p>
+            </div>
+        </div>
+
+        <div class="card hidden" id="statsCard">
+            <h3>Base Stats</h3>
+            <p><strong>HP:</strong> 45</p>
+            <div class="bar"><span style="width: 45%;"></span></div>
+
+            <p><strong>Attack:</strong> 60</p>
+            <div class="bar"><span style="width: 60%;"></span></div>
+
+            <p><strong>Defense:</strong> 48</p>
+            <div class="bar"><span style="width: 48%;"></span></div>
+
+            <p><strong>Sp. Atk:</strong> 65</p>
+            <div class="bar"><span style="width: 65%;"></span></div>
+
+            <p><strong>Sp. Def:</strong> 65</p>
+            <div class="bar"><span style="width: 65%;"></span></div>
+
+            <p><strong>Speed:</strong> 45</p>
+            <div class="bar"><span style="width: 45%; background-color: red;"></span></div>
+
+            <p><strong>Total:</strong> 317</p>
+        </div>
+
+        <div class="buttons">
+            <button class="btn" onclick="toggleCards()">Base Stats</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleCards() {
+            let aboutCard = document.getElementById('aboutCard');
+            let statsCard = document.getElementById('statsCard');
+
+            if (aboutCard.classList.contains('hidden')) {
+                aboutCard.classList.remove('hidden');
+                statsCard.classList.add('hidden');
+            } else {
+                aboutCard.classList.add('hidden');
+                statsCard.classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>

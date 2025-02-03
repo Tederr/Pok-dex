@@ -37,13 +37,31 @@
         <div class="image">
             <img id="pokemon-image" class="image-details" src="" alt="">
         </div>
-        
+
         <div class="card-details">
-            <p id="pokemon-height"></p>
+
+            <div class="navbar">
+                <span>About</span>
+                <span>Base Status</span>
+                <span>Evolutions</span>
+                <span>moves</span>
+            </div>
+
+            <div class="card" id="card-about">
+                    <p>Height<span id="pokemon-height"></span></p>
+                    <p>Weight<span id="pokemon-weight"></span></p>
+                    <p>Abilities<span id="pokemon-abilities"></span></p>
+            </div>
+
+            <div class="card-base_stats" id=""></div>
+
+            <div class="card-evolutions" id=""></div>
+            <div class="card-moves" id=""></div>
+
         </div>
 
     </section>
-    
+
     <!-- JS -->
     <script defer src="../scripts/pokemon-model.js"></script>
     <script defer src="../scripts/poke-api.js"></script>
