@@ -1,131 +1,131 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon Stats</title>
+    <title>Evoluções de Pokémon</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+        /* styles.css */
         body {
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            margin: 0;
         }
+
         .container {
-            position: relative;
-            width: 300px;
-        }
-        .card {
-            position: absolute;
-            width: 100%;
-            background: white;
+            background-color: #fff;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-        .hidden {
-            opacity: 0;
-            transform: translateX(50px);
-            pointer-events: none;
-        }
-        .buttons {
-            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-        .btn {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 5px;
-            transition: 0.3s;
+
+        input,
+        button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
         }
-        .btn:hover {
-            background: #45a049;
+
+        .evolutions-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
         }
-        .bar {
-            height: 8px;
-            border-radius: 5px;
-            margin: 5px 0;
-            background-color: #ddd;
-            position: relative;
+
+        .pokemon-card {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            width: 120px;
         }
-        .bar span {
-            display: block;
-            height: 100%;
-            border-radius: 5px;
-            background-color: #4CAF50;
+
+        .pokemon-card img {
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
+
 <body>
-
     <div class="container">
-        <div class="card" id="aboutCard">
-            <h3>About</h3>
-            <div class="info">
-                <p><strong>Species:</strong> Seed</p>
-                <p><strong>Height:</strong> 2'3.6" (0.70 cm)</p>
-                <p><strong>Weight:</strong> 15.2 lbs (6.9 kg)</p>
-                <p><strong>Abilities:</strong> Overgrow, Chlorophyll</p>
-                <p><strong>Gender:</strong> ♂ 87.5% ♀ 12.5%</p>
-                <p><strong>Egg Group:</strong> Monster</p>
-                <p><strong>Egg Cycle:</strong> Grass</p>
-            </div>
-        </div>
-
-        <div class="card hidden" id="statsCard">
-            <h3>Base Stats</h3>
-            <p><strong>HP:</strong> 45</p>
-            <div class="bar"><span style="width: 45%;"></span></div>
-
-            <p><strong>Attack:</strong> 60</p>
-            <div class="bar"><span style="width: 60%;"></span></div>
-
-            <p><strong>Defense:</strong> 48</p>
-            <div class="bar"><span style="width: 48%;"></span></div>
-
-            <p><strong>Sp. Atk:</strong> 65</p>
-            <div class="bar"><span style="width: 65%;"></span></div>
-
-            <p><strong>Sp. Def:</strong> 65</p>
-            <div class="bar"><span style="width: 65%;"></span></div>
-
-            <p><strong>Speed:</strong> 45</p>
-            <div class="bar"><span style="width: 45%; background-color: red;"></span></div>
-
-            <p><strong>Total:</strong> 317</p>
-        </div>
-
-        <div class="buttons">
-            <button class="btn" onclick="toggleCards()">Base Stats</button>
-        </div>
+        <h1>Evoluções do Pokémon</h1>
+        <input type="text" id="pokemonName" placeholder="Digite o nome do Pokémon">
+        <button id="searchButton">Buscar Evoluções</button>
+        <div id="evolutions" class="evolutions-container"></div>
     </div>
 
     <script>
-        function toggleCards() {
-            let aboutCard = document.getElementById('aboutCard');
-            let statsCard = document.getElementById('statsCard');
-
-            if (aboutCard.classList.contains('hidden')) {
-                aboutCard.classList.remove('hidden');
-                statsCard.classList.add('hidden');
-            } else {
-                aboutCard.classList.add('hidden');
-                statsCard.classList.remove('hidden');
+        // script.js
+        document.getElementById("searchButton").addEventListener("click", async () => {
+            const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
+            if (!pokemonName) {
+                alert("Por favor, digite o nome de um Pokémon.");
+                return;
             }
+
+            try {
+                // Passo 1: Buscar a espécie do Pokémon
+                const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonName}/`);
+                const speciesData = await speciesResponse.json();
+
+                // Passo 2: Buscar a cadeia de evolução
+                const evolutionChainUrl = speciesData.evolution_chain.url;
+                const evolutionResponse = await fetch(evolutionChainUrl);
+                const evolutionData = await evolutionResponse.json();
+
+                // Passo 3: Mapear as evoluções
+                const evolutions = [];
+                let currentEvolution = evolutionData.chain;
+
+                while (currentEvolution) {
+                    const pokemonName = currentEvolution.species.name;
+                    const pokemonResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}/`);
+                    const pokemonData = await pokemonResponse.json();
+                    evolutions.push(pokemonData);
+
+                    // Avançar para a próxima evolução
+                    currentEvolution = currentEvolution.evolves_to[0];
+                }
+
+                // Passo 4: Exibir as evoluções
+                displayEvolutions(evolutions);
+            } catch (error) {
+                console.error("Erro ao buscar evoluções:", error);
+                alert("Pokémon não encontrado ou erro na busca.");
+            }
+        });
+
+        function displayEvolutions(evolutions) {
+            const evolutionsContainer = document.getElementById("evolutions");
+            evolutionsContainer.innerHTML = ""; // Limpa o conteúdo anterior
+
+            evolutions.forEach(pokemon => {
+                const card = document.createElement("div");
+                card.className = "pokemon-card";
+
+                const name = document.createElement("h3");
+                name.textContent = pokemon.name;
+
+                const image = document.createElement("img");
+                image.src = pokemon.sprites.front_default;
+                image.alt = pokemon.name;
+
+                card.appendChild(name);
+                card.appendChild(image);
+                evolutionsContainer.appendChild(card);
+            });
         }
     </script>
-
 </body>
+
 </html>

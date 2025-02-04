@@ -6,6 +6,17 @@
     list-style: none;
 }
 
+.pesquisar{
+    position: relative;
+    left: 96%;
+    bottom: 3rem;
+    text-decoration: none;
+    color: #000000;
+    & i{
+        font-size: 1.5rem;
+    }
+}
+
 .normal {
     background-color: #a6a877;
 }
@@ -85,6 +96,8 @@
     padding: 1rem;
     border-radius: 1rem;
     transition: transform .2s;
+    background-image: url(../assets/fundos/fundoCard.png);
+    background-size: cover;
 }
 
 .pokemon:hover {

@@ -38,26 +38,42 @@
             <img id="pokemon-image" class="image-details" src="" alt="">
         </div>
 
-        <div class="card-details">
+        <div style="background-color: #fff;">
+            <div class="card-details">
 
-            <div class="navbar">
-                <span>About</span>
-                <span>Base Status</span>
-                <span>Evolutions</span>
-                <span>moves</span>
+                <nav class="navbar">
+                    <button class="nav-button" data-target="content1">About</button>
+                    <button class="nav-button" data-target="content2">Base Status</button>
+                    <button class="nav-button" data-target="content3">Evolutions</button>
+                    <button class="nav-button" data-target="content4">Moves</button>
+                </nav>
+
+                <!-- Conteúdos -->
+                <div class="content-container">
+                    <div class="content" id="content1">
+                        <div class="format"><span class="title">Height</span><span class="result" id="pokemon-height"></span></div>
+                        <div class="format"><span class="title">Weight</span><span class="result" id="pokemon-weight"></span></div>
+                        <div class="format"><span class="title">Abilities</span><span class="result" id="pokemon-abilities"></span></div>
+                    </div>
+
+                    <div class="content" id="content2">
+                        <div class="format"><span class="title">HP</span><span id="pokemon-hp" class="result"></span></div>
+                        <div class="format"><span class="title">Attack</span><span id="pokemon-attack" class="result"></span></div>
+                        <div class="format"><span class="title">Defense</span><span id="pokemon-defense"class="result"></span></div>
+                        <div class="format"><span class="title">Sp.Atk</span><span id="pokemon-sp-attack" class="result"></span></div>
+                        <div class="format"><span class="title">Sp.Def</span><span id="pokemon-sp-defense" class="result"></span></div>
+                        <div class="format"><span class="title">Speed</span><span id="pokemon-speed" class="result"></span></div>
+                        <div class="format"><span class="title">Total</span><span id="pokemon-total" class="result"></span></div>
+                    </div>
+
+                    <div class="content" id="content3">
+                        <div id="evolutions" class="evolutions"></div>
+                    </div>
+                    <div class="content" id="content4">
+                        <div class="format-ol"><span class="title">Moves</span><ol id="pokemon-moves" class="result"></ol></div>
+                    </div>
+                </div>
             </div>
-
-            <div class="card" id="card-about">
-                    <p>Height<span id="pokemon-height"></span></p>
-                    <p>Weight<span id="pokemon-weight"></span></p>
-                    <p>Abilities<span id="pokemon-abilities"></span></p>
-            </div>
-
-            <div class="card-base_stats" id=""></div>
-
-            <div class="card-evolutions" id=""></div>
-            <div class="card-moves" id=""></div>
-
         </div>
 
     </section>
@@ -71,18 +87,3 @@
 </body>
 
 </html>
-
-
-
-<!-- <div id="type-color">
-    
-    <img id="pokemon-image" src="" alt="">
-    
-    
-    
-    <div id="pokemon-details" class="card-details">
-        <p id="pokemon-height"></p>
-        <p id="pokemon-weight"></p>
-        <p id="pokemon-types"></p>
-    </div>
-</div> -->

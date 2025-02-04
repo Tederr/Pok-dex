@@ -12,11 +12,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- ICON -->
-    <link rel="shortcut icon" href="src/assets/icon/iconPokedex.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/icon/iconPokedex.png" type="image/x-icon">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="src/styles/pokedex.css">
-    <link rel="stylesheet" href="src/styles/global.css">
+    <link rel="stylesheet" href="../styles/pokedex.css">
+    <link rel="stylesheet" href="../styles/global.css">
+    <link rel="stylesheet" href="../styles/pesquisar.css">
 
     <!-- Font Roboto -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,26 +28,22 @@
 
 <body>
     <section class="content">
-        <h1>Pokedex</h1>
+        <div class="input-container">
+            <input type="text" name="inputPokemon" id="inputPokemon" placeholder="Digite o nome do Pokémon">
+            <div class="pesquisar-pokemon"><i class="fa-solid fa-plus"></i><label for="inputPokemon">Pesquisar</label></div>
+        </div>
 
-        <a class="pesquisar" href="src/page/pesquisarPokemon.html"><i class="fa-solid fa-magnifying-glass"></i></a>
 
-        <ol id="pokemonList" class="pokemons">
-            <!-- ..... Pokemons here ..... -->
-        </ol>
-
-        <div class="pagination">
-            <button id="loadMoreButton" type="button">
-                Load More
-            </button>
+        <div>
+            <a href="../../index.html"><button class="back-page"><i class="fa-solid fa-arrow-left-long"></i></button"></a>
         </div>
     </section>
 
     <!-- JS -->
     <script src="https://kit.fontawesome.com/e171c55c56.js" crossorigin="anonymous"></script>
-    <script defer src="src/scripts/pokemon-model.js"></script>
-    <script defer src="src/scripts/poke-api.js"></script>
-    <script defer src="src/scripts/main.js"></script>
+    <script defer src="../scripts/pokemon-model.js"></script>
+    <script defer src="../scripts/poke-api.js"></script>
+    <script defer src="../scripts/main.js"></script>
 </body>
 
 </html>

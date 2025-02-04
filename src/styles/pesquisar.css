@@ -1,0 +1,25 @@
+.input-container{
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#inputPokemon{
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+    width: 80%;
+}
+
+.pesquisar-pokemon {
+    margin-left: .3rem;
+    background-color: #bf3029;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: .5rem;
+    color: #fff;
+}
