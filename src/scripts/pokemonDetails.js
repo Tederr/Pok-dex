@@ -7,8 +7,6 @@ async function fetchPokemonData(pokemonId) {
     return data;
 }
 
-// Função para exibir os detalhes do Pokémon
-
 function formatId(pokemonId) {
     if (pokemonId < 10) {
         return `#00${pokemonId}`
@@ -111,7 +109,6 @@ function displayPokemonDetails(pokemon) {
 
 }
 
-// Função principal para carregar os detalhes do Pokémon
 async function loadPokemonDetails() {
     const urlParams = new URLSearchParams(window.location.search);
     const pokemonId = urlParams.get('id');

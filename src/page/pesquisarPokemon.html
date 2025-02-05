@@ -30,20 +30,22 @@
     <section class="content">
         <div class="input-container">
             <input type="text" name="inputPokemon" id="inputPokemon" placeholder="Digite o nome do Pokémon">
-            <div class="pesquisar-pokemon"><i class="fa-solid fa-plus"></i><label for="inputPokemon">Pesquisar</label></div>
+            <div class="pesquisar-pokemon"><i class="fa-solid fa-plus"></i><label for="inputPokemon" onclick="filterPokemon()">Pesquisar</label></div>
         </div>
 
+        <div class="lista-pokemons">
+            <ol id="pokemonList" class="pokemon-list"></ol>
+        </div>
 
-        <div>
-            <a href="../../index.html"><button class="back-page"><i class="fa-solid fa-arrow-left-long"></i></button"></a>
+        <div class="back">
+            <a href="../../index.html"><button><i class="fa-solid fa-arrow-left-long"></i> Voltar</button></a>
         </div>
     </section>
 
     <!-- JS -->
     <script src="https://kit.fontawesome.com/e171c55c56.js" crossorigin="anonymous"></script>
-    <script defer src="../scripts/pokemon-model.js"></script>
-    <script defer src="../scripts/poke-api.js"></script>
-    <script defer src="../scripts/main.js"></script>
+    <script src="../scripts/pesquisar.js"></script>
+
 </body>
 
 </html>
