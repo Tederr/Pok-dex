@@ -2,7 +2,6 @@
     background-image: url(../assets/fundos/pokemonFundo.png);
     background-size: cover;
     background-position: center;
-
 }
 
 .back-page {
@@ -105,7 +104,7 @@
 
 .content-container {
     position: relative;
-    min-height: 400px;
+    min-height: 300px;
     /* Altura fixa para o container */
     overflow: hidden;
 }
@@ -117,7 +116,6 @@
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px;
     box-sizing: border-box;
     opacity: 0;
     transform: translateX(100%);
@@ -148,8 +146,9 @@
 }
 
 .format{
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     font-size: 16px;
 }
 
@@ -167,6 +166,8 @@
 .pokemon-card{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-evolutions{
@@ -176,6 +177,30 @@
 .name-evolutions{
     text-transform: capitalize;
     text-align: center;
+}
+
+.moves-details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+    background-size: contain;
+    overflow-y: scroll;
+    list-style: none;
+    font-size: 0.8rem;
+    line-height: 170%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.move-card{
+    margin-left: 1rem;
+    display: flex;
+
 }
 
 
@@ -249,4 +274,13 @@
 
 .seta-fairy {
     color: #f9aec7;
+}
+
+@media screen and (min-width: 992px) {
+
+    .moves-details{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 250px;
+    }
 }

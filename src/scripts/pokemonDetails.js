@@ -1,5 +1,6 @@
 const types = document.getElementById('pokemon-types');
 const backgraudColor = document.querySelector('.content-details');
+const moves = document.getElementById('pokemon-moves');
 
 async function fetchPokemonData(pokemonId) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
@@ -88,6 +89,17 @@ async function getEvolutions(pokemon) {
 
 }
 
+function formatMoves(move){
+    return `<li class="move-card">
+                <span class="move-name">${move.move.name}</span>
+            </li>`
+}
+
+function convertMoves(pokemon){
+    const newHtml = pokemon.moves.map(formatMoves).join('')
+    return newHtml
+}
+
 function displayPokemonDetails(pokemon) {
     document.getElementById('pokemon-name').textContent = pokemon.name;
     document.getElementById('pokemon-id').textContent = `${formatId(pokemon.id)}`;
@@ -105,7 +117,9 @@ function displayPokemonDetails(pokemon) {
     document.getElementById('pokemon-sp-defense').textContent = pokemon.stats[4].base_stat;
     document.getElementById('pokemon-speed').textContent = pokemon.stats[5].base_stat;
     document.getElementById('pokemon-total').textContent = status(pokemon.stats);
-    document.getElementById('pokemon-moves').textContent = pokemon.moves.map((move) => move.move.name).join(', ');
+
+    moves.innerHTML += convertMoves(pokemon);
+    console.log(moves);
 
 }
 

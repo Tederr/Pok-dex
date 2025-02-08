@@ -73,6 +73,11 @@ async function fetchPokemon() {
 }
 
 function filterPokemon() {
+
+    if (listElement.length !== 0) {
+        listElement.innerHTML = '';
+    }
+
     let searchTerm = document.getElementById("inputPokemon").value.toLowerCase();
     let filtered = pokemonList.filter(name => name.name.toLowerCase().includes(searchTerm));
     
@@ -83,30 +88,3 @@ function filterPokemon() {
 }
 
 fetchPokemon()
-
-
-// function loadPokemonItens(offset, limit) {
-//     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
-//         const newHtml = pokemons.map(convertPokemonToLi).join('')
-//         pokemonList.innerHTML += newHtml;
-//         pokemonList.addEventListener('click', (event) => {
-//             const pokemon = event.target.closest('button').querySelector('#pokemonName').textContent;
-//             window.location.href = `src/page/detalhesPokemon.html?id=${pokemon}`;
-            
-//         })
-//     })
-// }
-
-// function filterPokemon() {
-//     let searchTerm = document.getElementById("search").value.toLowerCase();
-//     let filtered = pokemonList.filter(name => name.startsWith(searchTerm));
-    
-//     let listElement = document.getElementById("pokemonList");
-//     listElement.innerHTML = "";
-    
-//     filtered.forEach(name => {
-//         let li = document.createElement("li");
-//         li.textContent = name;
-//         listElement.appendChild(li);
-//     });
-// }
