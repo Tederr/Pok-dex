@@ -18,7 +18,7 @@ Este projeto é uma Pokedex desenvolvida em JavaScript, HTML e CSS, que consome 
 
 1. Clone este repositório:
    ```sh
-   git clone https://github.com/seu-usuario/pokedex.git
+   git clone https://github.com/Tederr/Pok-dex.git
    ```
 2. Navegue até a pasta do projeto:
     ```sh
@@ -52,7 +52,7 @@ Se você tiver dúvidas ou sugestões, entre em contato:
 
 ## 🎥 Demonstração
 
-Você pode conferir a aplicação em funcionamento [aqui](https://tederr.github.io/Multiverso-batman/).
+Você pode conferir a aplicação em funcionamento [aqui](https://tederr.github.io/Pok-dex/).
 
 ---
 

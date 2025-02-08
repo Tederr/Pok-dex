@@ -55,6 +55,9 @@ function convertPokemonToLi(pokemon) {
 function loadPokemonItens(toLI) {
     const newHtml = convertPokemonToLi(toLI);
     listElement.innerHTML += newHtml;
+    if (listElement.length === 0) {
+        return alert('Nenhum Pokémon encontrado!');
+    }
     listElement.addEventListener('click', (event) => {
         const pokemon = event.target.closest('button').querySelector('#pokemonName').textContent;
         window.location.href = `detalhesPokemon.html?id=${pokemon}`;
@@ -64,7 +67,7 @@ function loadPokemonItens(toLI) {
 
 async function fetchPokemon() {
     try {
-        let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=1000");
+        let response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000");
         let data = await response.json();
         pokemonList = data.results;
     } catch (error) {
@@ -74,11 +77,14 @@ async function fetchPokemon() {
 
 function filterPokemon() {
 
-    if (listElement.length !== 0) {
-        listElement.innerHTML = '';
+    const searchTerm = document.getElementById("inputPokemon").value.toLowerCase();
+    searchTerm.trim();
+
+    if (searchTerm.length === 0) {
+        alert("Por favor, insira um nome de Pokémon para pesquisar.");
+        return;
     }
 
-    let searchTerm = document.getElementById("inputPokemon").value.toLowerCase();
     let filtered = pokemonList.filter(name => name.name.toLowerCase().includes(searchTerm));
     
     filtered.forEach(pokemon => {

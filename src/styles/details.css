@@ -12,6 +12,7 @@
     width: 3rem;
     border: none;
     background-color: #f5f5f5;
+    user-select: none;
 }
 
 .back-page:hover {

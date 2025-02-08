@@ -4,9 +4,11 @@
     margin: 0;
     padding: 0;
     list-style: none;
+    align-items: center;
+    justify-content: center;
 }
 
-.nav-bar{
+.nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,10 +16,12 @@
     padding: 0 1rem;
 }
 
-.pesquisar{
+.pesquisar {
     text-decoration: none;
     color: #000000;
-    & i{
+    user-select: none;
+
+    & i {
         font-size: 1.5rem;
     }
 }
@@ -103,6 +107,7 @@
     transition: transform .2s;
     background-image: url(../assets/fundos/fundoCard.png);
     background-size: cover;
+    user-select: none;
 }
 
 .pokemon:hover {
@@ -161,6 +166,7 @@
     align-items: center;
     width: 100%;
     padding: 1rem;
+    user-select: none;
 }
 
 .pagination button {
@@ -171,11 +177,17 @@
     background-color: #6c79db;
     border: none;
     border-radius: 1rem;
+    user-select: none;
 }
 
 @media screen and (min-width: 380px) {
     .pokemons {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .pokemon {
+        margin: .2rem;
+        padding: .5rem;
     }
 }
 
